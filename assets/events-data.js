@@ -1,7 +1,7 @@
 // One source for every event: used by the home cards, the event pages and "More events".
 window.DKH_EVENTS = [
   {
-    slug: 'baraat-swagat', name: 'Baraat Swagat', what: 'The welcome',
+    slug: 'baraat-swagat', name: 'Baraat Swagat', what: 'The Welcome',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '08:00', time: '8:00 am',
     venue: 'Krishna Resort, Chikhli', photo: '3d/baraat-swagat.jpg', pos: '50% 35%',
     extra: ['Followed by Breakfast']
@@ -45,7 +45,7 @@ window.DKH_EVENTS = [
     rituals: [
       { time: '2:00 pm', name: 'Bind Nakasi', note: 'Baraat' },
       { time: '4:00 pm', name: 'Varmala', note: 'Vrindavan Ground' },
-      { time: '5:30 pm', name: 'Hastmilap', note: 'Ampy Theatre' }
+      { time: '5:00 pm', name: 'Hastmilap', note: 'Ampy Theatre' }
     ]
   },
   {
@@ -56,7 +56,7 @@ window.DKH_EVENTS = [
     extra: ['Followed by Dinner with Chovihaar Facility available']
   },
   {
-    slug: 'breakfast', name: 'Breakfast', what: 'One Meal Together before the Event Ends',
+    slug: 'breakfast', name: 'Breakfast', what: 'A Meal of Togetherness before New Beginnings ❤️',
     day: 'Wednesday', date: '20th January', iso: '2027-01-20', start: '07:30', time: '7:30 am',
     venue: 'Krishna Resort, Chikhli', photo: '3d/breakfast.jpg', pos: '50% 35%'
   }
