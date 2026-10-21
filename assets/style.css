@@ -1,18 +1,22 @@
-/* Darpan & Helly — editorial layout, colours from the monogram */
+/* Darpan & Helly — royal navy & gold, matching the bell invitation on the home page */
 :root {
-  --bg: #F8F1EC;
-  --card: #FFFFFF;
-  --sand: #F1E6DA;     /* menu + notes */
-  --ink: #2E0B18;      /* deep wine text */
-  --rani: #A8274F;     /* monogram crimson-pink */
-  --wine: #6E1530;     /* story page */
-  --lotus: #E39AAE;
-  --sage: #6F7F55;
-  --muted: #7B6068;
-  --line: rgba(46, 11, 24, .14);
+  --bg: #FBF3DF;       /* ivory */
+  --card: #FFFAF0;
+  --sand: #F3E7C8;     /* menu + notes */
+  --ink: #1E2C55;      /* deep navy text */
+  --rani: #8A6418;     /* accent gold, dark enough for text (4.8:1 on ivory) */
+  --wine: #14307A;     /* royal navy: story hero */
+  --lotus: #F1D98A;
+  --sage: #5E6B3F;
+  --muted: #5B6584;
+  --line: rgba(20, 48, 122, .16);
+  --navy: #14307A;
+  --gold: #B98A30;     /* decorative gold only (borders, ornaments) */
 
-  --serif: "Instrument Serif", "Times New Roman", serif;
-  --sans: "Instrument Sans", system-ui, sans-serif;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans: "Cormorant Garamond", Georgia, serif;
+  --script: "Pinyon Script", cursive;
+  --caps: "Cinzel", "Times New Roman", serif;
 
   --gutter: clamp(16px, 2.6vw, 40px);
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -440,3 +444,35 @@ body { animation: pageIn .8s var(--ease) both; }
   .cards--all .card.fade { transform: none !important; }
   .hero--3d .hero__img, .hero--3d .hero__title { transform: none !important; animation: none !important; }
 }
+
+/* ---------- Royal theme: same type and ornament as the bell invitation ---------- */
+body { font-size: 18px; font-weight: 500; }
+.display, .hero__title, .foot__names, .upnext__name, .story-hero .display { font-family: var(--script); font-weight: 400; letter-spacing: 0; line-height: 1.05; }
+.display { font-size: clamp(3.4rem, 8vw, 6.8rem); color: var(--navy); }
+.display i, .ev__what, .evd__what, .foot__tag, .lede { font-style: italic; }
+.hero__title { font-size: clamp(4rem, 11vw, 9.4rem); }
+.hero__sub, .head__names, .head__date, .head__menu, .btn, .menu__links a, .foot__links a, .chips span,
+.feature__label, .ev__time, .card__meta, .upnext__label, .story-hero__kicker, .rsvp__card h2 {
+  font-family: var(--caps); font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
+}
+.head__names, .head__date, .head__menu { font-size: .78rem; }
+.hero__sub { font-size: clamp(.8rem, 1.1vw, .95rem); }
+.card__meta, .ev__time, .upnext__label { font-size: .78rem; }
+.menu__links a { font-size: clamp(1.7rem, 4.4vw, 3rem); line-height: 1.6; color: var(--navy); }
+.foot__links a { font-size: clamp(1.1rem, 1.8vw, 1.5rem); line-height: 2.1; }
+.btn { font-size: .78rem; border-radius: 999px; background: var(--navy); color: var(--bg); padding: 1em 1.7em; }
+.btn:hover { background: var(--rani); }
+.btn--light { background: radial-gradient(circle at 35% 30%, #fffaf0, #f1e2bd); color: var(--navy); box-shadow: inset 0 0 0 1px var(--gold); }
+.btn--line { box-shadow: inset 0 0 0 1px var(--gold); color: var(--navy); }
+.head__mark { background: var(--bg); box-shadow: 0 0 0 1px var(--gold); }
+.head__mark img { object-fit: contain; transform: none; padding: 4px; }
+.h-lg, .h-md, .ev__name, .evd__facts dd, .feature__dates, .countdown b, .planner__count { color: var(--navy); }
+.hero::before { background: radial-gradient(120% 70% at 0% 100%, rgba(20, 48, 122, .55), transparent 60%), linear-gradient(to bottom, rgba(0,0,0,.25), transparent 22%, transparent 55%, rgba(20, 48, 122, .5)); }
+.card, .note, .ev, .family__card, .evd__box { box-shadow: inset 0 0 0 1px rgba(185, 138, 48, .35); }
+.feature__star, .note__star { color: var(--gold); }
+.foot__card { border-color: var(--gold); outline-color: rgba(185, 138, 48, .4); background: var(--card); }
+.rsvp__card { border-color: var(--gold); }
+.lightbox { background: rgba(10, 20, 52, .94); }
+.orn { display: block; width: min(300px, 70%); height: 24px; margin: 18px auto 0; }
+.menu.is-open .menu__links li:nth-child(5) a { transition-delay: .53s; }
+.story-hero .display { color: inherit; }
