@@ -4,56 +4,60 @@ window.DKH_EVENTS = [
     slug: 'baraat-swagat', name: 'Baraat Swagat', what: 'The welcome',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '08:00', time: '8:00 am',
     venue: 'Krishna Resort, Chikhli', photo: '3d/baraat-swagat.jpg', pos: '50% 35%',
-    extra: ['Followed by breakfast']
+    extra: ['Followed by Breakfast']
   },
   {
-    slug: 'rango-ka-mela', name: 'Rango Ka Mela', what: 'Haldi carnival',
+    slug: 'rango-ka-mela', name: 'Rango Ka Mela', what: 'Haldi Carnival',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '10:00', time: '10:00 am',
     venue: 'Kalakunj Ground', photo: '3d/rango-ka-mela.jpg', pos: '50% 35%',
-    theme: 'Pastel colours', palette: ['#F4C7D0', '#FBE6A6', '#C7E3CF', '#C9DDF2', '#DCCDEF'],
-    women: 'Indo-western', men: 'Short kurta'
+    theme: 'Pastel Colors', palette: ['#F4C7D0', '#FBE6A6', '#C7E3CF', '#C9DDF2', '#DCCDEF'],
+    women: 'Indo Western', men: 'Kurta',
+    extra: ['Followed by Lunch']
   },
   {
-    slug: 'mamera-ri-mithas', name: 'Mamera ri Mithas', what: 'Mosalu',
+    slug: 'mamera-ri-mithas', name: 'Mamera Ri Mithaas', what: 'Mayra',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '14:00', time: '2:00 pm',
     venue: 'Raj Mahal Hall', photo: '3d/mamera-ri-mithas.jpg', pos: '50% 35%',
-    theme: 'Rajasthani', palette: ['#C1272D', '#F2A900', '#D4145A', '#E8692B', '#2E7D5B']
+    theme: 'Rajasthani', palette: ['#C1272D', '#F2A900', '#D4145A', '#E8692B', '#2E7D5B'],
+    extra: ['Followed by High Tea']
   },
   {
     slug: 'aaja-nach-le', name: 'Aaja Nach Le', what: 'Sangeet',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '19:00', time: '7:00 pm',
     venue: 'Vrindavan Ground', photo: '3d/aaja-nach-le.jpg', pos: '50% 35%',
-    theme: 'Shimmer, in navy, violet, grey', palette: ['#1E2A57', '#5A3A8E', '#7F8090', '#C5C8D3'], shimmer: true,
-    extra: ['Chovihaar facility available']
+    theme: 'Shimmer',
+    extra: ['Followed by Dinner with Chovihaar Facility available']
   },
   {
-    slug: 'chakka-maar-chalang-maar', name: 'Chakka Maar, Chalang Maar', what: 'Cricket Olympics, followed by a pool party',
+    slug: 'chakka-maar-chalang-maar', name: 'Chhaka Maar, Chalang Maar', what: 'Cricket Match, followed by a Pool Party',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '08:00', time: '8:00 am',
     venue: 'Kalakunj Ground', photo: '3d/chakka-maar-chalang-maar.jpg', pos: '50% 35%',
     theme: 'Floral colours', palette: ['#F29AB8', '#FFD166', '#9FD8A6', '#F7A072', '#4D6FA3'],
-    women: 'Jeans or a long frock', men: 'Jeans or trackpants, shirt or t-shirt'
+    everyone: 'Sporty Yet Festive',
+    extra: ['Starts with Breakfast, Followed by Lunch']
   },
   {
     slug: 'shagna-de-sham', name: 'Shagna de Sham', what: 'The wedding',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '14:00', time: '2:00 pm',
     venue: 'Vrindavan Ground & Ampy Theatre', photo: '3d/shagna-de-sham.jpg', pos: '50% 35%',
     women: 'Lehenga', men: 'Traditional',
+    extra: ['Followed by High Tea'],
     rituals: [
-      { time: '2:00 pm', name: 'Bin Nakasi', note: 'Baraat' },
-      { time: '4:30 pm', name: 'Varmala', note: 'Vrindavan Ground' },
-      { time: '5:30 pm', name: 'Phera', note: 'Ampy Theatre' }
+      { time: '2:00 pm', name: 'Bind Nakasi', note: 'Baraat' },
+      { time: '4:00 pm', name: 'Varmala', note: 'Vrindavan Ground' },
+      { time: '5:30 pm', name: 'Hastmilap', note: 'Ampy Theatre' }
     ]
   },
   {
-    slug: 'raat-baaki', name: 'Raat Baaki', what: 'After-party reception',
+    slug: 'raat-baaki', name: 'Raat Baaki', what: 'After-Party Reception',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '19:30', time: '7:30 pm',
     venue: 'Vrindavan Ground', photo: '3d/raat-baaki.jpg', pos: '50% 35%',
     theme: 'Cocktail night', women: 'Gown', men: 'Suit or blazer',
-    extra: ['Chovihaar facility available']
+    extra: ['Followed by Dinner with Chovihaar Facility available']
   },
   {
-    slug: 'breakfast', name: 'Breakfast', what: 'One last meal together',
-    day: 'Wednesday', date: '20th January', iso: '2027-01-20', start: '08:00', time: 'Morning',
+    slug: 'breakfast', name: 'Breakfast', what: 'One Meal Together before We Part Ways',
+    day: 'Wednesday', date: '20th January', iso: '2027-01-20', start: '07:30', time: '7:30 am',
     venue: 'Krishna Resort, Chikhli', photo: '3d/breakfast.jpg', pos: '50% 35%'
   }
 ];
@@ -66,7 +70,7 @@ window.DKH_EVENTS = [
     return '<a class="card fade" data-delay="' + (i % 4) + '" href="event.html?e=' + ev.slug + '">' +
       '<div class="card__img tilt"><span class="tilt__glare" aria-hidden="true"></span><img src="assets/img/' + ev.photo + '" alt="" loading="lazy" style="object-position:' + ev.pos + '"></div>' +
       '<div class="card__meta"><span>' + esc(ev.name) + '</span><span>' + esc(ev.date) + '</span></div>' +
-      '<p class="card__more">' + esc(ev.what) + ', ' + esc(ev.time === 'Morning' ? 'morning' : ev.time) + '</p>' +
+      '<p class="card__more">' + esc(ev.what) + ', ' + esc(ev.time) + '</p>' +
       '</a>';
   }
   window.DKH_card = card;
@@ -89,7 +93,7 @@ window.DKH_EVENTS = [
   heroImg.style.objectPosition = ev.pos;
   heroImg.alt = '';
   document.getElementById('evTitle').textContent = ev.name;
-  document.getElementById('evSub').textContent = ev.day + ', ' + ev.date + (ev.time === 'Morning' ? ', morning' : ', ' + ev.time);
+  document.getElementById('evSub').textContent = ev.day + ', ' + ev.date + ', ' + ev.time;
   document.getElementById('evWhat').textContent = ev.what;
 
   var facts = [
@@ -110,12 +114,13 @@ window.DKH_EVENTS = [
   } else rit.remove();
 
   var dress = document.getElementById('evDress');
-  if (ev.theme || ev.women) {
+  if (ev.theme || ev.women || ev.everyone) {
     var h = '<h2 class="h-md">Dress code</h2>';
     if (ev.theme) h += '<p class="ev__dress-title">Theme: ' + esc(ev.theme) + '</p>';
     if (ev.palette) h += '<ul class="swatches swatches--lg' + (ev.shimmer ? ' shimmer' : '') + '" aria-label="Colour palette">' +
       ev.palette.map(function (c) { return '<li style="--c:' + c + '"></li>'; }).join('') + '</ul>';
     if (ev.women) h += '<dl><dt>Women</dt><dd>' + esc(ev.women) + '</dd><dt>Men</dt><dd>' + esc(ev.men) + '</dd></dl>';
+    if (ev.everyone) h += '<dl><dt>Women &amp; Men</dt><dd>' + esc(ev.everyone) + '</dd></dl>';
     dress.innerHTML = h;
   } else {
     dress.innerHTML = '<h2 class="h-md">Dress code</h2><p class="ev__dress-title">No dress code. Come as you are.</p>';

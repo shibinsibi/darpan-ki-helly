@@ -148,48 +148,42 @@
     update();
   }
 
-  // Gallery lightbox
-  var lb = document.getElementById('lightbox');
-  if (lb) {
-    var lbImg = lb.querySelector('img');
-    var last;
-    document.querySelectorAll('.gallery figure').forEach(function (f) {
-      f.tabIndex = 0;
-      f.setAttribute('role', 'button');
-      var open = function () {
-        last = f;
-        var img = f.querySelector('img');
-        lbImg.src = img.src; lbImg.alt = img.alt;
-        lb.classList.add('is-open');
-        lb.querySelector('button').focus();
-      };
-      f.addEventListener('click', open);
-      f.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
-    });
-    var close = function () { lb.classList.remove('is-open'); if (last) last.focus(); };
-    lb.querySelector('button').addEventListener('click', close);
-    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
-  }
-
-  // RSVP: compose a WhatsApp message to Darpan
+  // RSVP: saved as a row in the family's Google Sheet (Apps Script web app).
+  // Until RSVP_SHEET_URL is set, it falls back to a WhatsApp message to Darpan.
+  var RSVP_SHEET_URL = '';
   var form = document.getElementById('rsvpForm');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = form.name.value.trim();
-      var guests = form.guests.value;
+      var guests = Math.max(1, parseInt(form.guests.value, 10) || 1);
+      var phone = form.phone.value.trim();
       var days = Array.prototype.map.call(form.querySelectorAll('input[name="days"]:checked'), function (d) { return d.value; });
+      var note = form.note.value.trim();
       var err = document.getElementById('formError');
-      if (!name) { err.textContent = 'Add your name so Darpan knows who’s coming.'; form.name.focus(); return; }
+      var btn = form.querySelector('button[type="submit"]');
+      if (!name) { err.textContent = 'Add your name so we know who’s coming.'; form.name.focus(); return; }
+      if (phone.replace(/\D/g, '').length < 10) { err.textContent = 'Add a contact number so we can reach you.'; form.phone.focus(); return; }
       if (!days.length) { err.textContent = 'Pick at least one day you’ll be there.'; return; }
       err.textContent = '';
-      var msg = 'Hi Darpan! RSVP for #DarpanKiHelly\n' +
-        'Name: ' + name + '\n' +
-        'Guests: ' + guests + '\n' +
-        'Attending: ' + days.join(', ') +
-        (form.note.value.trim() ? '\nNote: ' + form.note.value.trim() : '');
-      window.open('https://wa.me/919824768648?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      if (!RSVP_SHEET_URL) {
+        var msg = 'Hi Darpan! RSVP for #DarpanKiHelly\n' +
+          'Name: ' + name + '\nGuests: ' + guests + '\nContact: ' + phone + '\nAttending: ' + days.join(', ') +
+          (note ? '\nNote: ' + note : '');
+        window.open('https://wa.me/919824768648?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      // Form-encoded + no-cors: Apps Script accepts it without a CORS preflight; the response is opaque.
+      fetch(RSVP_SHEET_URL, {
+        method: 'POST', mode: 'no-cors',
+        body: new URLSearchParams({ name: name, guests: guests, phone: phone, days: days.join(', '), note: note })
+      }).then(function () {
+        form.innerHTML = '<p class="h-md" role="status">Thank you, ' + name.replace(/[&<>"]/g, '') + '! Your RSVP is in. See you in Chikhli.</p>';
+      }, function () {
+        btn.disabled = false; btn.textContent = 'Send RSVP';
+        err.textContent = 'Could not send. Check your internet and try again, or call our Event Team below.';
+      });
     });
   }
 })();

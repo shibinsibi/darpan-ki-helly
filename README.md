@@ -8,7 +8,7 @@ Invitation site for Darpan & Helly's wedding, 18–19 January 2027 at Krishna Re
 - `story.html` – the couple's story, families and gallery
 - `events.html` – full schedule and wardrobe planner
 - `event.html?e=<slug>` – one event, with "Up next" and the other events below
-- `rsvp.html` – RSVP form that opens WhatsApp
+- `rsvp.html` – RSVP form; saves to the Google Sheet once `RSVP_SHEET_URL` is set in `assets/main.js` (script: `../RSVP-sheet-script.gs`), WhatsApp until then
 
 Event details (times, venues, dress codes, images) live in `assets/events-data.js`.
 
