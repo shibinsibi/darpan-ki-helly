@@ -139,7 +139,7 @@
 
   // RSVP: saved as a row in the family's Google Sheet (Apps Script web app).
   // Until RSVP_SHEET_URL is set, it falls back to a WhatsApp message to Darpan.
-  var RSVP_SHEET_URL = '';
+  var RSVP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyPinXDLM5bgnkw4xMgrc2_KDTtMZcI1NP-wRPcs2NePCNAGq9LS8pqj-4XndiC1lWr/exec';
   var form = document.getElementById('rsvpForm');
   if (form) {
     form.addEventListener('submit', function (e) {

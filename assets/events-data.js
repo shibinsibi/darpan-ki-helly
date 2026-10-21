@@ -37,7 +37,7 @@ window.DKH_EVENTS = [
     extra: ['Starts with Breakfast, Followed by Lunch']
   },
   {
-    slug: 'shagna-de-sham', name: 'Shagna de Shaam', what: 'The wedding',
+    slug: 'shagna-de-sham', name: 'Shagna di Shaam', what: 'The Wedding',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '14:00', time: '2:00 pm',
     venue: 'Vrindavan Ground & Ampy Theatre', photo: '3d/shagna-de-sham.jpg', pos: '50% 35%',
     women: 'Lehenga', men: 'Traditional',
