@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Event – Darpan &amp; Helly</title>
+<meta name="description" content="Time, venue and dress code for each of Darpan & Helly's wedding events, 18–19 January 2027 at Krishna Resort, Chikhli.">
+<meta name="theme-color" content="#F8F1EC">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="head">
+  <a class="head__names" href="index.html">Darpan &amp; Helly</a>
+  <a class="head__mark" href="index.html" aria-label="Home"><img src="assets/img/logo.jpg" alt=""></a>
+  <div class="head__right">
+    <span class="head__date">18–19.01.2027</span>
+    <button class="head__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Site">
+  <div class="menu__photo"><img src="assets/img/IMG_0318.jpg" alt=""></div>
+  <ul class="menu__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="events.html">Event Details</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+</nav>
+
+<main id="eventPage">
+  <section class="hero hero--short hero--3d">
+    <div class="hero__img"><img id="evHeroImg" src="" alt=""></div>
+    <h1 class="hero__title" data-lines>
+      <span class="line"><span id="evTitle"></span></span>
+      <span class="line"><span class="hero__sub" id="evSub"></span></span>
+    </h1>
+  </section>
+
+  <section class="evd wrap">
+    <div class="evd__main">
+      <p class="evd__what fade" id="evWhat"></p>
+      <dl class="evd__facts fade" data-delay="1" id="evFacts"></dl>
+      <div class="evd__actions fade" data-delay="2">
+        <a class="btn btn--pill" href="https://www.google.com/maps/search/?api=1&amp;query=Krishna+Resort+Chikhli" target="_blank" rel="noopener">Open in Google Maps</a>
+        <button class="btn btn--line btn--pill" type="button" id="evCal">Add to calendar</button>
+      </div>
+    </div>
+    <div class="evd__side">
+      <div class="evd__box fade" id="evRituals"></div>
+      <div class="evd__box fade" data-delay="1" id="evDress"></div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <a class="upnext fade" id="evNext" href="#">
+      <span class="upnext__label">Up next</span>
+      <span class="upnext__name" data-next-name></span>
+      <span class="upnext__date" data-next-date></span>
+      <span class="upnext__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </section>
+
+  <section class="wrap section" aria-labelledby="more-h" style="padding-top:clamp(64px,8vw,110px)">
+    <div class="sec-head">
+      <h2 class="display" id="more-h" data-lines><span class="line"><span><i>More</i></span></span><span class="line"><span>events</span></span></h2>
+      <a class="btn" href="events.html">Full schedule</a>
+    </div>
+    <div class="cards cards--all" id="moreEvents"></div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <div>
+    <p class="foot__names">Darpan &amp; Helly</p>
+    <p class="foot__info">18–19 January 2027<br>Krishna Resort, Chikhli</p>
+    <p class="foot__tag">#DarpanKiHelly</p>
+  </div>
+  <ul class="foot__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="events.html">Event Details</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="foot__card"><img src="assets/img/logo.jpg" alt="Darpan and Helly monogram" loading="lazy"></div>
+</footer>
+
+<script src="assets/events-data.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>

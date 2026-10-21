@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RSVP – Darpan &amp; Helly</title>
+<meta name="description" content="Let Darpan & Helly know you're coming, 18–19 January 2027 at Krishna Resort, Chikhli.">
+<meta name="theme-color" content="#F8F1EC">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="head head--dark">
+  <a class="head__names" href="index.html">Darpan &amp; Helly</a>
+  <a class="head__mark" href="index.html" aria-label="Home"><img src="assets/img/logo.jpg" alt=""></a>
+  <div class="head__right">
+    <span class="head__date">18–19.01.2027</span>
+    <button class="head__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Site">
+  <div class="menu__photo"><img src="assets/img/IMG_0318.jpg" alt=""></div>
+  <ul class="menu__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="events.html">Event Details</a></li>
+    <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
+  </ul>
+</nav>
+
+<main class="rsvp wrap">
+  <div class="rsvp__left">
+    <h1 class="display" data-lines><span class="line"><span>Will you celebrate</span></span><span class="line"><span>with us?</span></span></h1>
+    <p class="fade" data-delay="1"><b>RSVP</b><br>We’d be delighted to have you with us in Chikhli on 18th and 19th January 2027.</p>
+    <p class="small fade" data-delay="2">Sending the form opens WhatsApp with your reply written out for Darpan. Just press send.</p>
+  </div>
+
+  <div class="rsvp__card fade" data-delay="1">
+    <h2>Join our celebration</h2>
+    <form id="rsvpForm" novalidate>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Priya &amp; Rohan Mehta">
+      </div>
+      <div class="field">
+        <label for="guests">Number of guests</label>
+        <input type="number" id="guests" name="guests" min="1" max="20" value="1" inputmode="numeric">
+      </div>
+      <fieldset class="field">
+        <legend>Which days will you be there?</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="days" value="18 Jan" checked><span>Mon, 18 Jan</span></label>
+          <label><input type="checkbox" name="days" value="19 Jan" checked><span>Tue, 19 Jan</span></label>
+          <label><input type="checkbox" name="days" value="20 Jan breakfast"><span>Wed, 20 Jan breakfast</span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="note">Anything we should know? (optional)</label>
+        <textarea id="note" name="note" placeholder="Arrival time, dietary needs, Chovihaar…"></textarea>
+      </div>
+      <p class="form-error" id="formError" aria-live="polite"></p>
+      <button class="btn btn--pill" type="submit" style="width:100%">Send RSVP on WhatsApp</button>
+    </form>
+    <p class="rsvp__or">Prefer to call?</p>
+    <div class="rsvp__calls">
+      <a href="tel:+919824768648"><span>Darpan, +91 98247 68648</span><span>Call</span></a>
+      <a href="tel:+919824137035"><span>Dinesh Shrishrimal, +91 98241 37035</span><span>Call</span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <div>
+    <p class="foot__names">Darpan &amp; Helly</p>
+    <p class="foot__info">18–19 January 2027<br>Krishna Resort, Chikhli</p>
+    <p class="foot__tag">#DarpanKiHelly</p>
+  </div>
+  <ul class="foot__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="events.html">Event Details</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="foot__card"><img src="assets/img/logo.jpg" alt="Darpan and Helly monogram" loading="lazy"></div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
