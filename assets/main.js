@@ -114,17 +114,6 @@
     setInterval(run, 30000);
   }
 
-  // Notes carousel arrows
-  var track = document.querySelector('.track');
-  if (track) {
-    var step = function (dir) {
-      var card = track.querySelector('.note');
-      track.scrollBy({ left: dir * (card.offsetWidth + 16), behavior: reduce ? 'auto' : 'smooth' });
-    };
-    document.querySelector('[data-prev]').addEventListener('click', function () { step(-1); });
-    document.querySelector('[data-next]').addEventListener('click', function () { step(1); });
-  }
-
   // Wardrobe planner, saved on this phone
   var list = document.getElementById('checklist');
   if (list) {

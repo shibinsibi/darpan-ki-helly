@@ -25,19 +25,19 @@ window.DKH_EVENTS = [
     slug: 'aaja-nach-le', name: 'Aaja Nach Le', what: 'Sangeet',
     day: 'Monday', date: '18th January', iso: '2027-01-18', start: '19:00', time: '7:00 pm',
     venue: 'Vrindavan Ground', photo: '3d/aaja-nach-le.jpg', pos: '50% 35%',
-    theme: 'Shimmer',
+    theme: 'Shimmer', palette: ['#1E2A57', '#5A3A8E', '#8A8C96', '#C9CCD3', '#6B7B3A'], shimmer: true,
     extra: ['Followed by Dinner with Chovihaar Facility available']
   },
   {
-    slug: 'chakka-maar-chalang-maar', name: 'Chhaka Maar, Chalang Maar', what: 'Cricket Match, followed by a Pool Party',
+    slug: 'chakka-maar-chalang-maar', name: 'Chhakka Maar, Chalang Maar', what: 'Cricket Match & Pool Party',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '08:00', time: '8:00 am',
     venue: 'Kalakunj Ground', photo: '3d/chakka-maar-chalang-maar.jpg', pos: '50% 35%',
     theme: 'Floral colours', palette: ['#F29AB8', '#FFD166', '#9FD8A6', '#F7A072', '#4D6FA3'],
-    everyone: 'Sporty Yet Festive',
+    women: 'Sporty Yet Festive', men: 'Sporty Yet Festive',
     extra: ['Starts with Breakfast, Followed by Lunch']
   },
   {
-    slug: 'shagna-de-sham', name: 'Shagna de Sham', what: 'The wedding',
+    slug: 'shagna-de-sham', name: 'Shagna de Shaam', what: 'The wedding',
     day: 'Tuesday', date: '19th January', iso: '2027-01-19', start: '14:00', time: '2:00 pm',
     venue: 'Vrindavan Ground & Ampy Theatre', photo: '3d/shagna-de-sham.jpg', pos: '50% 35%',
     women: 'Lehenga', men: 'Traditional',
@@ -56,7 +56,7 @@ window.DKH_EVENTS = [
     extra: ['Followed by Dinner with Chovihaar Facility available']
   },
   {
-    slug: 'breakfast', name: 'Breakfast', what: 'One Meal Together before We Part Ways',
+    slug: 'breakfast', name: 'Breakfast', what: 'One Meal Together before the Event Ends',
     day: 'Wednesday', date: '20th January', iso: '2027-01-20', start: '07:30', time: '7:30 am',
     venue: 'Krishna Resort, Chikhli', photo: '3d/breakfast.jpg', pos: '50% 35%'
   }
@@ -114,13 +114,12 @@ window.DKH_EVENTS = [
   } else rit.remove();
 
   var dress = document.getElementById('evDress');
-  if (ev.theme || ev.women || ev.everyone) {
+  if (ev.theme || ev.women) {
     var h = '<h2 class="h-md">Dress code</h2>';
     if (ev.theme) h += '<p class="ev__dress-title">Theme: ' + esc(ev.theme) + '</p>';
     if (ev.palette) h += '<ul class="swatches swatches--lg' + (ev.shimmer ? ' shimmer' : '') + '" aria-label="Colour palette">' +
       ev.palette.map(function (c) { return '<li style="--c:' + c + '"></li>'; }).join('') + '</ul>';
     if (ev.women) h += '<dl><dt>Women</dt><dd>' + esc(ev.women) + '</dd><dt>Men</dt><dd>' + esc(ev.men) + '</dd></dl>';
-    if (ev.everyone) h += '<dl><dt>Women &amp; Men</dt><dd>' + esc(ev.everyone) + '</dd></dl>';
     dress.innerHTML = h;
   } else {
     dress.innerHTML = '<h2 class="h-md">Dress code</h2><p class="ev__dress-title">No dress code. Come as you are.</p>';
