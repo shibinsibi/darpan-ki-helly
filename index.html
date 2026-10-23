@@ -185,31 +185,25 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--navy);outline-offse
 <nav class="menu" id="menu" aria-label="Site menu"><button data-t="p2">THE COUPLE</button><button data-t="p3">INVITATION</button><button data-t="p4">CELEBRATIONS</button><hr><a href="events.html">EVENT DETAILS</a><a href="story.html">OUR STORY</a><a href="rsvp.html">RSVP</a><button class="x" id="cl">CLOSE</button></nav>
 </main>
 <script src="assets/events-data.js"></script>
+<script src="assets/music.js"></script>
 <script>
 (()=>{
 const $=id=>document.getElementById(id),body=document.body,sc=$('sc'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const go=()=>body.classList.add('ready');
 Promise.race([Promise.all(['1em Cinzel','1em "Pinyon Script"','italic 1em "Cormorant Garamond"'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,3000))]).then(()=>document.fonts.ready).then(go,go);
-let ac,mg,on=false,tm,step=0;
+let ac;
 const AC=()=>ac||(ac=new (window.AudioContext||window.webkitAudioContext)());
 function bellSound(){try{const c=AC(),t=c.currentTime,o=c.createGain();o.gain.value=.5;o.connect(c.destination);
 [[1,1],[2.01,.5],[2.76,.45],[4.07,.25],[5.4,.18],[8.9,.08]].forEach(([r,a])=>{const s=c.createOscillator(),g=c.createGain();s.frequency.value=392*r;s.type='sine';g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a*.5,t+.01);g.gain.exponentialRampToValueAtTime(.0005,t+(r>3?1.4:4.2));s.connect(g).connect(o);s.start(t);s.stop(t+4.5)})}catch(e){}}
-const sc5=[261.6,293.7,329.6,392,440,523.3,587.3],pat=[0,2,4,2,5,4,2,1,0,2,4,6,5,4,2,3];
-function note(){const c=AC(),t=c.currentTime,s=c.createOscillator(),g=c.createGain();s.type='triangle';s.frequency.value=sc5[pat[step++%pat.length]];
-g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.07,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+1.6);s.connect(g).connect(mg);s.start(t);s.stop(t+1.7)}
-function music(v){on=v;const b=$('mus');b.setAttribute('aria-pressed',v);b.setAttribute('aria-label','Turn wedding music '+(v?'off':'on'));b.style.opacity=v?1:.6;
- if(v){const c=AC();c.resume();if(!mg){mg=c.createGain();mg.gain.value=1;const d=c.createDelay();d.delayTime.value=.38;const f=c.createGain();f.gain.value=.35;mg.connect(c.destination);mg.connect(d);d.connect(f);f.connect(d);f.connect(c.destination)}
- clearInterval(tm);note();tm=setInterval(note,650)}else clearInterval(tm)}
-$('mus').onclick=()=>music(!on);
 function sparks(){const b=$('sparks');for(let i=0;i<22;i++){const s=document.createElement('span'),z=4+Math.random()*6;s.className='sp';s.style.cssText=`left:${34+Math.random()*34}%;top:${18+Math.random()*30}%;width:${z}px;height:${z}px;--dl:${(Math.random()*1.6).toFixed(2)}s`;b.appendChild(s)}}
-// Guests coming back from another page this session skip the bell (music waits for a tap)
+// Guests coming back from another page this session skip the bell; music.js carries the song on
 const KEY='dkh-rang',seen=(()=>{try{return sessionStorage.getItem(KEY)}catch(e){}})();
 function enter(){$('p1').classList.add('gone');body.classList.add('entered');$('p2').classList.add('show');$('ctl').classList.remove('hide');try{sessionStorage.setItem(KEY,1)}catch(e){}}
 $('p1').onclick=()=>{const p=$('p1');if(p.dataset.d)return;p.dataset.d=1;
  $('bell').classList.add('ring');bellSound();if(!rm){p.classList.add('ringing');sparks()}
  if(rm){setTimeout(fin,300);return}
  setTimeout(()=>p.classList.add('leave'),1100);setTimeout(()=>{$('p2').classList.add('show');$('pb').classList.add('go');$('ctl').classList.remove('hide');music(true)},2500);setTimeout(fin,3200);
- function fin(){enter();if(!on)music(true)}};
+ function fin(){enter();if(rm)music(true)}};
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting&&body.classList.contains('entered'))x.target.classList.add('show')}),{root:sc,threshold:.3});
 io.observe($('p3'));io.observe($('p4'));
 const a2=document.querySelector('#p2 .art');
@@ -232,7 +226,7 @@ const target=new Date('2027-01-18T08:00:00+05:30').getTime();
 const run=()=>{const s=Math.max(0,Math.floor((target-Date.now())/1000));cells.d.textContent=Math.floor(s/86400);cells.h.textContent=String(Math.floor(s/3600)%24).padStart(2,'0');cells.m.textContent=String(Math.floor(s/60)%60).padStart(2,'0')};
 run();setInterval(run,30000);
 const hash=location.hash.slice(1),jump={couple:'p2',invitation:'p3',celebrations:'p4'}[hash];
-if(seen||jump){enter();music(false);if(jump)requestAnimationFrame(()=>{sc.scrollTop=$(jump).offsetTop})}
+if(seen||jump){enter();if(jump)requestAnimationFrame(()=>{sc.scrollTop=$(jump).offsetTop})}
 })();
 </script>
 </body></html>
