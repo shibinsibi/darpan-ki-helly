@@ -10,7 +10,8 @@ function ui(v){b.setAttribute('aria-pressed',v);b.setAttribute('aria-label','Tur
 
 // Inside the frame: the page that opened us plays the song, this page's button just controls it
 let T=null;try{if(window.top!==window&&window.top.__dkhPlayer)T=window.top}catch(e){}
-if(T){window.music=v=>{T.music(v);ui(v)};b.onclick=()=>window.music(!T.musicOn());ui(T.musicOn());return}
+if(T){T.__dkhSync&&T.__dkhSync(location.href,document.title); // don't wait for this page's images
+ window.music=v=>{T.music(v);ui(v)};b.onclick=()=>window.music(!T.musicOn());ui(T.musicOn());return}
 
 let st={on:false,t:0};try{st=JSON.parse(sessionStorage.getItem(KEY))||st}catch(e){}
 const AUD=new Audio('assets/wedding-song.mp3');
@@ -44,6 +45,7 @@ else ui(on);
 // The address bar, title and Back button follow the page in the frame.
 const css=document.createElement('style');css.textContent='.page-frame{position:fixed;inset:0;width:100%;height:100%;border:0;z-index:1000;background:#fff}';document.head.appendChild(css);
 const title0=document.title;let fr=null;
+window.__dkhSync=(url,t)=>{if(fr){history.replaceState({frame:1},'',url);document.title=t}};
 if(history.state&&history.state.frame)history.replaceState(null,'');
 function openPage(url){
  if(!fr){fr=document.createElement('iframe');fr.className='page-frame';fr.title='Invitation page';
